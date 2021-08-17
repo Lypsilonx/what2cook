@@ -1,0 +1,202 @@
+[
+    {
+        "symbol": "🥛",
+        "name": "Banana Shake",
+        "ingredients": 
+        [
+             "Banana",
+             "Oat Milk"
+        ]
+    },
+    {
+        "symbol": "🍞",
+        "name": "Bread",
+        "ingredients": 
+        [
+             "Flour",
+             "Oil"
+        ]
+    },
+    {
+        "symbol": "🥣",
+        "name": "Spaghetti Alio e Olio",
+        "ingredients": 
+        [
+             "Pasta",
+             "Oil",
+             "Garlic",
+             "Chilli"
+        ]
+    },
+    {
+        "symbol": "🍝",
+        "name": "Bolognese",
+        "ingredients": 
+        [
+             "Pasta",
+             "Tomato Sauce",
+             "Onion",
+             "Carrot",
+             "Granular Soy"
+        ]
+    },
+    {
+        "symbol": "🍕",
+        "name": "Pizza",
+        "ingredients": 
+        [
+             "Flour",
+             "Yeast",
+             "Oil",
+             "Tomato Sauce",
+             "Onion",
+             "Cheese",
+             "Mushroom",
+             "Pepper"
+        ]
+    },
+    {
+        "symbol": "🍚",
+        "name": "Fried Rice",
+        "ingredients": 
+        [
+             "Rice",
+             "Pepper",
+             "Onion"
+        ]
+    },
+    {
+        "symbol": "🌯",
+        "name": "Salad Wraps",
+        "ingredients": 
+        [
+             "Salad",
+             "Pepper",
+             "Onion",
+             "Wrap",
+             "Mushroom",
+             "Tomato"
+        ]
+    },
+    {
+        "symbol": "🍔",
+        "name": "Burger",
+        "ingredients":
+        [
+            "Salad",
+            "Pickles",
+            "Onion",
+            "Buns",
+            "Zuccini",
+            "Oat",
+            "Tomato"
+        ] 
+    },
+    {
+        "symbol": "🥧",
+        "name": "Apple Cake",
+        "ingredients":
+        [
+            "Apple",
+            "Flour",
+            "Sugar",
+            "Oat Milk"
+        ]
+    },
+    {
+        "symbol": "🍜",
+        "name": "Chinese Vegetables",
+        "ingredients":
+        [
+            "Pepper",
+            "Carrot",
+            "Onion",
+            "Chinese Noodles"
+        ]
+    },
+    {
+        "symbol": "🥔",
+        "name": "Fried Potatoes",
+        "ingredients":
+        [
+            "Potato",
+            "Onion"
+        ]
+    },
+    {
+        "symbol": "🥞",
+        "name": "Pancakes",
+        "ingredients":
+        [
+            "Oat Milk",
+            "Flour"
+        ]
+    },
+    {
+        "symbol": "🍠",
+        "name": "Roasted Sweet Potato",
+        "ingredients":
+        [
+            "Sweet Potato",
+            "Oil"
+        ]
+    },
+    {
+        "symbol": "🥗",
+        "name": "Noodle Salad",
+        "ingredients":
+        [
+            "Pasta",
+            "Yoghurt",
+            "Beans",
+            "Pepper",
+            "Vinegar"
+        ]
+    },
+    {
+        "symbol": "🥗",
+        "name": "Salad",
+        "ingredients":
+        [
+            "Vinegar",
+            "Oil",
+            "Salad",
+            "Tomato",
+            "Pepper"
+        ]
+    },
+    {
+        "symbol": "🥄",
+        "name": "Lentil Soup",
+        "ingredients":
+        [
+            "Lentils",
+            "Onion",
+            "Garlic",
+            "Leek"
+        ]
+    },
+    {
+        "symbol": "🌯",
+        "name": "Burritos",
+        "ingredients":
+        [
+            "Rice",
+            "Pepper",
+            "Beans",
+            "Salad",
+            "Avocado",
+            "Tomato",
+            "Wrap"
+        ]
+    },
+    {
+        "symbol": "🥑",
+        "name": "Guacamole",
+        "ingredients":
+        [
+            "Avocado",
+            "Tomato"
+        ]
+    }
+]
