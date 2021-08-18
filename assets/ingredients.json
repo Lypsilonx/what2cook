@@ -20,20 +20,12 @@
         "name": "Oat Milk"
     },
     {
-        "symbol": "",
-        "name": "Oil"
-    },
-    {
         "symbol": "🥔",
         "name": "Potato"
     },
     {
         "symbol": "🥕",
         "name": "Carrot"
-    },
-    {
-        "symbol": "",
-        "name": "Soy"
     },
     {
         "symbol": "🧅",
@@ -48,20 +40,8 @@
         "name": "Chilli"
     },
     {
-        "symbol": "",
-        "name": "Pepper"
-    },
-    {
-        "symbol": "",
-        "name": "Granular Soy"
-    },
-    {
         "symbol": "🍅",
         "name": "Tomato"
-    },
-    {
-        "symbol": "",
-        "name": "Tomato Sauce"
     },
     {
         "symbol": "🍝",
@@ -74,10 +54,6 @@
     {
         "symbol": "🍄",
         "name": "Mushroom"
-    },
-    {
-        "symbol": "",
-        "name": "Yeast"
     },
     {
         "symbol": "🍚",
@@ -120,23 +96,7 @@
         "name": "Yoghurt"
     },
     {
-        "symbol": "",
-        "name": "Beans"
-    },
-    {
-        "symbol": "",
-        "name": "Vinegar"
-    },
-    {
-        "symbol": "",
-        "name": "Leek"
-    },
-    {
         "symbol": "🥑",
         "name": "Avocado"
-    },
-    {
-        "symbol": "",
-        "name": "Lentils"
     }
 ]

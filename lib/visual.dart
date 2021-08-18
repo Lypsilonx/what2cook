@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:what2cook/format.dart';
 
-class UIRecepie extends StatelessWidget {
-  Recepie recepie;
+class UIRecipe extends StatelessWidget {
+  Recipe recipe;
   List<Ingredient> available;
   bool selected;
 
-  UIRecepie(this.recepie, this.available, this.selected);
+  UIRecipe(this.recipe, this.available, this.selected);
 
   @override
   Widget build(BuildContext ctx) {
     var screenSize = MediaQuery.of(ctx).size;
 
-    double perc = recepie.cookableP(available);
+    double perc = recipe.cookableP(available);
 
     int aP = selected ? 255 : (255 * perc).toInt();
 
-    recepie.ingredients.sort((a, b) {
+    recipe.ingredients.sort((a, b) {
       return (available.map((e) => e.name).contains(a.name) ? 0 : 1)
           .compareTo((available.map((e) => e.name).contains(b.name) ? 0 : 1));
     });
@@ -39,10 +39,10 @@ class UIRecepie extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
               Row(
-                children: (recepie.symbol != ''
+                children: (recipe.symbol != ''
                         ? <Widget>[
                             Text(
-                              recepie.symbol,
+                              recipe.symbol,
                               style: TextStyle(
                                 fontSize: screenSize.height * 0.05,
                                 color: Theme.of(ctx).accentColor.withAlpha(
@@ -57,7 +57,7 @@ class UIRecepie extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            recepie.name,
+                            recipe.name,
                             style: TextStyle(
                               fontSize: screenSize.height * 0.03,
                               color: Theme.of(ctx).accentColor.withAlpha(
@@ -72,11 +72,11 @@ class UIRecepie extends StatelessWidget {
                                 softWrap: true,
                                 overflow: TextOverflow.fade,
                                 text: TextSpan(
-                                  children: recepie.ingredients
+                                  children: recipe.ingredients
                                       .map(
                                         (e) => TextSpan(
                                           text: e.name +
-                                              (recepie.ingredients.last == e
+                                              (recipe.ingredients.last == e
                                                   ? ''
                                                   : ', '),
                                           style: TextStyle(

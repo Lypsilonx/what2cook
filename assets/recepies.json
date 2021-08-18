@@ -5,7 +5,7 @@
         "ingredients": 
         [
              "Banana",
-             "Oat Milk"
+             "(Oat) Milk"
         ]
     },
     {
@@ -100,7 +100,7 @@
             "Apple",
             "Flour",
             "Sugar",
-            "Oat Milk"
+            "(Oat) Milk"
         ]
     },
     {
@@ -128,7 +128,7 @@
         "name": "Pancakes",
         "ingredients":
         [
-            "Oat Milk",
+            "(Oat) Milk",
             "Flour"
         ]
     },
@@ -196,6 +196,77 @@
         "ingredients":
         [
             "Avocado",
+            "Tomato"
+        ]
+    },
+    {
+        "symbol": "",
+        "name": "Fried Chicken with cream sauce",
+        "ingredients":
+        [
+            "Chicken",
+            "Cream",
+            "Onion",
+            "Oil",
+            "Mushrooms"
+        ]
+    },
+    {
+        "symbol": "",
+        "name": "Ratatuille",
+        "ingredients":
+        [
+            "Eggplant",
+            "Zuccini",
+            "Carrots",
+            "Tomato Sauce",
+            "Pepper",
+            "Onion"
+        ]
+    },
+    {
+        "symbol": "",
+        "name": "Chicken Curry",
+        "ingredients":
+        [
+            "Chicken",
+            "Coconut milk",
+            "Leek",
+            "Pepper",
+            "Carrot",
+            "Curry powder/paste"
+        ]
+    },
+    {
+        "symbol": "",
+        "name": "Spätzle",
+        "ingredients":
+        [
+            "Flour",
+            "Egg",
+            "Semolina"
+        ]
+    },
+    {
+        "symbol": "",
+        "name": "Potato Salad",
+        "ingredients":
+        [
+            "Potato",
+            "(Oat) Milk",
+            "Sugar",
+            "Onion",
+            "Pickles"
+        ]
+    },
+    {
+        "symbol": "",
+        "name": "Goulash",
+        "ingredients":
+        [
+            "Pork",
+            "Onion",
+            "Pepper",
             "Tomato"
         ]
     }
