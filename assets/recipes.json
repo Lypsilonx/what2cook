@@ -5,7 +5,7 @@
         "ingredients": 
         [
              "Banana",
-             "(Oat) Milk"
+             "(Plant) Milk"
         ]
     },
     {
@@ -100,7 +100,7 @@
             "Apple",
             "Flour",
             "Sugar",
-            "(Oat) Milk"
+            "(Plant) Milk"
         ]
     },
     {
@@ -128,7 +128,7 @@
         "name": "Pancakes",
         "ingredients":
         [
-            "(Oat) Milk",
+            "(Plant) Milk",
             "Flour"
         ]
     },
@@ -253,7 +253,7 @@
         "ingredients":
         [
             "Potato",
-            "(Oat) Milk",
+            "(Plant) Milk",
             "Sugar",
             "Onion",
             "Pickles"
