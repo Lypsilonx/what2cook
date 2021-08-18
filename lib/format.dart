@@ -107,13 +107,15 @@ void addRecipe(Recipe r) async {
   save('ownR', ownRecipes + n);
 }
 
-Future<List<Recipe>> removeRecipe(Recipe r) async {
+void removeRecipe(Recipe r) async {
   String ownRecipes = await read<String>('ownR');
 
   List<Recipe> n = stringToRecipes(ownRecipes);
-  n.remove(r);
+  n.removeWhere((e) => e.name == r.name);
 
-  return n;
+  String nstr = n.map((e) => e.name + ',' + e.ingredients.map((e) => e.name).join(',')).join(';');
+
+  save('ownR', nstr);
 }
 
 Future<List<Ingredient>> readIngredients() async {

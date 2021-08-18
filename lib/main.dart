@@ -143,28 +143,34 @@ class _HomePageState extends State<HomePage> {
         onPressed: adding
             ? () {
                 setState(() {
-                  if (newReIngredients != '' && newReName != '') {
-                    addRecipe(
-                      Recipe(
-                        '',
-                        newReName,
-                        newReIngredients
-                            .split(',')
-                            .map(
-                              (e) => Ingredient(
-                                '',
-                                e,
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    );
+                  if (newReName != '') {
+                    if (newReIngredients == '' &&
+                        recipes.map((e) => e.name).contains(newReName)) {
+                      removeRecipe(Recipe('', newReName, []));
+                    } else {
+                      addRecipe(
+                        Recipe(
+                          '',
+                          newReName,
+                          newReIngredients
+                              .split(',').where((element) => element != ' ')
+                              .map(
+                                (e) => Ingredient(
+                                  '',
+                                  e,
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      );
+                    }
                   }
 
                   refreshData();
                   adding = false;
                   newReName = '';
                   newReIngredients = '';
+                  widget.ingCon.text = '';
                 });
               }
             : () => {
@@ -173,7 +179,11 @@ class _HomePageState extends State<HomePage> {
                   })
                 },
         child: Icon(
-          Icons.add_rounded,
+          (adding &&
+                  recipes.map((e) => e.name).contains(newReName) &&
+                  newReName != '')
+              ? Icons.delete
+              : Icons.add_rounded,
           color: adding ? Colors.white : Theme.of(ctx).accentColor,
         ),
         backgroundColor: adding ? Theme.of(ctx).primaryColor : Colors.white,
@@ -415,40 +425,38 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 onChanged: (value) => newReName = value,
                               ),
-                              Expanded(
-                                child: TextField(
-                                  controller: widget.ingCon,
-                                  maxLines: null,
-                                  decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color: Theme.of(ctx)
-                                              .accentColor
-                                              .withAlpha(128)),
-                                      hintText:
-                                          'Ingredients (Apple, Banana,...)'),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      if (widget.ingCon.value.text
-                                          .contains('\n')) {
-                                        widget.ingCon.value = TextEditingValue(
-                                          text: widget.ingCon.value.text
-                                              .replaceAll('\n', ', '),
-                                          selection: TextSelection.fromPosition(
-                                            TextPosition(
-                                              offset: widget.ingCon.value
-                                                      .selection.start +
-                                                  1,
-                                            ),
+                              TextField(
+                                controller: widget.ingCon,
+                                maxLines: null,
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintStyle: TextStyle(
+                                        color: Theme.of(ctx)
+                                            .accentColor
+                                            .withAlpha(128)),
+                                    hintText:
+                                        'Ingredients (Apple, Banana,...)'),
+                                onChanged: (value) {
+                                  setState(() {
+                                    if (widget.ingCon.value.text
+                                        .contains('\n')) {
+                                      widget.ingCon.value = TextEditingValue(
+                                        text: widget.ingCon.value.text
+                                            .replaceAll('\n', ', '),
+                                        selection: TextSelection.fromPosition(
+                                          TextPosition(
+                                            offset: widget.ingCon.value
+                                                    .selection.start +
+                                                1,
                                           ),
-                                        );
-                                      }
-                                    });
+                                        ),
+                                      );
+                                    }
+                                  });
 
-                                    newReIngredients = value.replaceAllMapped(
-                                        ' ', (match) => '');
-                                  },
-                                ),
+                                  newReIngredients = value.replaceAllMapped(
+                                      ' ', (match) => '');
+                                },
                               ),
                             ],
                           ),
