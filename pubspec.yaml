@@ -50,7 +50,7 @@ flutter_icons:
 # The following section is specific to Flutter.
 flutter:
   assets:
-    - assets/recepies.json
+    - assets/recipes.json
     - assets/ingredients.json
 
   # The following line ensures that the Material Icons font is

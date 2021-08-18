@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:what2cook/format.dart';
 import 'package:what2cook/storage.dart';
 import 'package:what2cook/visual.dart';
@@ -30,6 +31,8 @@ class HomePage extends StatefulWidget {
   List<Ingredient> available = [];
   List<Recipe> selected = [];
 
+  TextEditingController ingCon = TextEditingController();
+
   List<Ingredient> needed() {
     List<Ingredient> ing = [];
 
@@ -58,7 +61,7 @@ class _HomePageState extends State<HomePage> {
 
   String newReName = '';
 
-  String newReIngredients = "";
+  String newReIngredients = '';
 
   @override
   void initState() {
@@ -67,36 +70,38 @@ class _HomePageState extends State<HomePage> {
     refreshData();
   }
 
-  void refreshData() {
-    readRecipes().then((value) {
-      readIngredients().then((value2) {
-        setState(() {
-          allIngredients = value2;
-          allIngredients.sort((a, b) => a.name.compareTo(b.name));
+  void refreshData() async {
+    readIngredients().then((value2) {
+      setState(() {
+        allIngredients = value2;
+        allIngredients.sort((a, b) => a.name.compareTo(b.name));
 
-          for (Recipe r in value) {
-            for (Ingredient i in r.ingredients) {
-              if (!allIngredients.map((e) => e.name).contains(i.name)) {
-                allIngredients.add(i);
+        readRecipes().then((value) {
+          setState(() {
+            for (Recipe r in value) {
+              for (Ingredient i in r.ingredients) {
+                if (!allIngredients.map((e) => e.name).contains(i.name)) {
+                  allIngredients.add(i);
+                }
               }
             }
-          }
 
-          allIngredients.sort((a, b) => a.name.compareTo(b.name));
+            allIngredients.sort((a, b) => a.name.compareTo(b.name));
 
-          value.sort(
-            (a, b) => (1 -
-                    a.cookableP(widget.available) -
-                    (widget.selected.map((e) => e.name).contains(a.name)
-                        ? 1
-                        : 0))
-                .compareTo(1 -
-                    b.cookableP(widget.available) -
-                    (widget.selected.map((e) => e.name).contains(b.name)
-                        ? 1
-                        : 0)),
-          );
-          recipes = value;
+            value.sort(
+              (a, b) => (1 -
+                      a.cookableP(widget.available) -
+                      (widget.selected.map((e) => e.name).contains(a.name)
+                          ? 1
+                          : 0))
+                  .compareTo(1 -
+                      b.cookableP(widget.available) -
+                      (widget.selected.map((e) => e.name).contains(b.name)
+                          ? 1
+                          : 0)),
+            );
+            recipes = value;
+          });
         });
       });
     });
@@ -398,6 +403,7 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             children: [
                               TextField(
+                                textInputAction: TextInputAction.next,
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
@@ -411,6 +417,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               Expanded(
                                 child: TextField(
+                                  controller: widget.ingCon,
                                   maxLines: null,
                                   decoration: InputDecoration(
                                       border: InputBorder.none,
@@ -420,8 +427,27 @@ class _HomePageState extends State<HomePage> {
                                               .withAlpha(128)),
                                       hintText:
                                           'Ingredients (Apple, Banana,...)'),
-                                  onChanged: (value) => newReIngredients = value
-                                      .replaceAllMapped(' ', (match) => ''),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      if (widget.ingCon.value.text
+                                          .contains('\n')) {
+                                        widget.ingCon.value = TextEditingValue(
+                                          text: widget.ingCon.value.text
+                                              .replaceAll('\n', ', '),
+                                          selection: TextSelection.fromPosition(
+                                            TextPosition(
+                                              offset: widget.ingCon.value
+                                                      .selection.start +
+                                                  1,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    });
+
+                                    newReIngredients = value.replaceAllMapped(
+                                        ' ', (match) => '');
+                                  },
                                 ),
                               ),
                             ],
